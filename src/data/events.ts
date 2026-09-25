@@ -1,7 +1,9 @@
+import { currentSummit } from '@/data/summits';
+
 export interface EventItem {
   id: string;
   title: string;
-  type: 'Masterclass' | 'Workshop' | 'Community' | 'Volunteer' | 'Leadership' | 'Networking';
+  type: 'Masterclass' | 'Workshop' | 'Community' | 'Volunteer' | 'Leadership' | 'Networking' | 'Summit';
   date: string;
   time: string;
   location: string;
@@ -15,13 +17,13 @@ export interface EventItem {
 export const featuredEvent: EventItem = {
   id: 'global-summit-2026',
   title: 'Stop The Cycle Global Summit 2026',
-  type: 'Networking',
-  date: 'Saturday, October 3, 2026',
-  time: '10:00 AM',
-  location: 'SUNTAAL EVENT CENTER',
+  type: 'Summit',
+  date: currentSummit.date,
+  time: currentSummit.time,
+  location: `${currentSummit.venue}, ${currentSummit.address}`,
   description: 'Explore the currencies of the future—knowledge, innovation, technology, relationships, influence, adaptability, and purpose.',
-  image: '/images/events/IMG_9539.JPG',
-  alt: 'Stop The Cycle Global Summit 2026 poster for The Currencies of the Future',
+  image: currentSummit.image,
+  alt: currentSummit.alt,
   status: 'upcoming',
   featured: true,
 };
@@ -35,8 +37,8 @@ export const events: EventItem[] = [
     time: '',
     location: 'Port Harcourt',
     description: 'A hands-on session exploring AI tools, digital content creation and the practical skills shaping the future of work.',
-    image: '/images/gallery/571223660_17849724345579622_8524791354055729271_n.jpeg',
-    alt: 'The Stop The Cycle team preparing a digital media session',
+    image: '/images/photos/whiteboard-session.webp',
+    alt: 'A facilitator teaching at a whiteboard during a Stop The Cycle session',
     status: 'upcoming',
     featured: true,
   },
@@ -48,8 +50,8 @@ export const events: EventItem[] = [
     time: '',
     location: 'Port Harcourt',
     description: 'A gathering for current and prospective volunteers to connect, share experiences and build community.',
-    image: '/images/events/image copy 2.png',
-    alt: 'Volunteers gathered together for the Stop The Cycle Volunteers Hangout',
+    image: '/images/posters/volunteers-hangout.webp',
+    alt: 'Volunteers Hangout poster: Be part of something bigger',
     status: 'upcoming',
     featured: true,
   },
@@ -61,8 +63,8 @@ export const events: EventItem[] = [
     time: '5:30 PM',
     location: 'Port Harcourt',
     description: 'Weekly gatherings for honest conversations about purpose, character, leadership and growth.',
-    image: '/images/events/IMG_9509.JPG',
-    alt: 'Participants listening during a Stop The Cycle session',
+    image: '/images/photos/group-conversation.webp',
+    alt: 'Young people gathered for a Life Class group conversation',
     status: 'upcoming',
     featured: false,
   },
@@ -74,8 +76,8 @@ export const events: EventItem[] = [
     time: '',
     location: 'Port Harcourt',
     description: 'Building the capacity to take responsibility, make decisions and create change.',
-    image: '/images/events/IMG_9510.JPG',
-    alt: 'A speaker sharing a question with the room',
+    image: '/images/photos/question-from-room.webp',
+    alt: 'A speaker with a microphone addressing participants',
     status: 'upcoming',
     featured: false,
   },
@@ -87,9 +89,35 @@ export const events: EventItem[] = [
     time: '',
     location: 'Port Harcourt',
     description: 'An evening of connections, conversations and collaboration among young professionals and entrepreneurs.',
-    image: '/images/gallery/569602076_17849725545579622_4969342789266002829_n copy.jpeg',
-    alt: 'Stop The Cycle community members gathered together',
+    image: '/images/photos/masterclass-audience.webp',
+    alt: 'An audience of young people at a Stop The Cycle event',
     status: 'upcoming',
+    featured: false,
+  },
+  {
+    id: 'global-summit-2025',
+    title: 'Global Summit 2025: Leading the Future of the African Youth',
+    type: 'Summit',
+    date: 'Saturday, 25 October 2025',
+    time: '11:00 AM',
+    location: 'Suntaal Event Centre, Port Harcourt',
+    description: 'Keynote and guest speeches, a panel session, entertainment, an exhibition and awards.',
+    image: '/images/posters/summit-2025.webp',
+    alt: 'Poster for the Stop The Cycle Global Summit 2025, Leading the Future of the African Youth',
+    status: 'past',
+    featured: false,
+  },
+  {
+    id: 'skill-acquisition-2025',
+    title: 'Free Skill Acquisition Day',
+    type: 'Workshop',
+    date: 'Friday, 24 October 2025',
+    time: '10:00 AM',
+    location: '',
+    description: 'A one-day programme of digital, vocational and technical skills to help young people stay ahead financially and lead the future.',
+    image: '/images/posters/skill-acquisition-2025.webp',
+    alt: 'Poster for the Stop The Cycle Free Skill Acquisition day, 24 October 2025',
+    status: 'past',
     featured: false,
   },
 ];

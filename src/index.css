@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Caveat:wght@500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,6 +15,10 @@
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Fraunces', Georgia, serif;
+  }
+  :focus-visible {
+    outline: 2px solid #176B57;
+    outline-offset: 3px;
   }
   ::selection {
     background-color: rgba(23, 107, 87, 0.15);
@@ -60,12 +62,14 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
   .hero-image-mirror {
     transform: scaleX(-1);
-  }
-  .hero-suit-fade {
-    -webkit-mask-image: radial-gradient(ellipse 75% 95% at center, #000 35%, rgba(0, 0, 0, 0.6) 75%, transparent 100%);
-    mask-image: radial-gradient(ellipse 75% 95% at center, #000 35%, rgba(0, 0, 0, 0.6) 75%, transparent 100%);
   }
 }
 

@@ -36,7 +36,7 @@ export function SectionHeader({
         {title}
       </h2>
       {subtitle && (
-        <p className={`text-base leading-relaxed text-brand-navy/60 md:text-lg ${center ? 'max-w-2xl' : 'max-w-2xl'} text-pretty`}>
+        <p className={`text-base leading-relaxed text-brand-navy/75 md:text-lg ${center ? 'max-w-2xl' : 'max-w-2xl'} text-pretty`}>
           {subtitle}
         </p>
       )}
