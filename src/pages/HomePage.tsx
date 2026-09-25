@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Users, Target, TrendingUp, Quote, Calendar, MapPin, Pause, Play } from 'lucide-react';
@@ -11,6 +11,7 @@ import { stories, impactMetrics } from '@/data/stories';
 import { galleryItems } from '@/data/gallery';
 import { organization } from '@/data/organization';
 import { usePageMeta } from '@/lib/usePageMeta';
+import { useAutoSlide } from '@/lib/useAutoSlide';
 
 const impactPillars = [
   { icon: Target, label: 'Skills', description: 'Digital skills, AI and future-ready capabilities.' },
@@ -60,6 +61,9 @@ export function HomePage() {
   const summitUpcoming = isSummitUpcoming();
   const [activeHero, setActiveHero] = useState(0);
   const [paused, setPaused] = useState(prefersReducedMotion);
+  // Phones: the program cards glide 1 → 4 and back on their own.
+  const programsCarousel = useRef<HTMLDivElement>(null);
+  useAutoSlide(programsCarousel);
   // Only download a slide shortly before it is shown.
   const [loadedSlides, setLoadedSlides] = useState(2);
 
@@ -239,7 +243,7 @@ export function HomePage() {
               subtitle="Pathways designed to help young people develop practical skills, build character, and step into opportunity."
             />
           </Reveal>
-          <StaggerGroup className="scrollbar-none -mx-4 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:mt-14 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
+          <StaggerGroup ref={programsCarousel} className="scrollbar-none -mx-4 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:mt-14 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
             {programs.map((program) => (
               <StaggerItem key={program.id} className="w-[85%] shrink-0 snap-start sm:w-[60%] md:w-auto">
                 {program.highlight ? (
