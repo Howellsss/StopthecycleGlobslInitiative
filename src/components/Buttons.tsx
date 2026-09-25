@@ -50,7 +50,7 @@ export function ArrowLink({ children, to }: { children: ReactNode; to: string })
   return (
     <Link
       to={to}
-      className="group inline-flex items-center gap-1.5 text-sm font-semibold text-brand-emerald transition-colors hover:text-brand-emerald-light"
+      className="group inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-brand-emerald transition-colors hover:text-brand-emerald-light"
     >
       {children}
       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

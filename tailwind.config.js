@@ -19,7 +19,6 @@ export default {
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
         serif: ['Fraunces', 'Georgia', 'serif'],
-        script: ['Caveat', 'cursive'],
       },
       letterSpacing: {
         tightest: '-0.04em',

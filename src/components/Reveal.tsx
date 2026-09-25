@@ -3,14 +3,14 @@ import { motion, type Variants } from 'framer-motion';
 
 const easeCurve = [0.16, 1, 0.3, 1] as const;
 
-export const fadeUpVariants: Variants = {
+const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
 
-export const staggerContainer: Variants = {
+const staggerContainer: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.05 } },
 };
 
 interface RevealProps {

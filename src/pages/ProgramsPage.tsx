@@ -3,6 +3,8 @@ import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { Button, ArrowLink } from '@/components/Buttons';
 import { SectionLabel, SectionHeader } from '@/components/SectionHeader';
 import { programs } from '@/data/programs';
+import { PageHero } from '@/components/PageHero';
+import { usePageMeta } from '@/lib/usePageMeta';
 
 const programAreas = [
   {
@@ -33,26 +35,17 @@ const programAreas = [
 ];
 
 export function ProgramsPage() {
+  usePageMeta('Programs', 'Digital upskilling, the Life Class Community, leadership development, economic empowerment and masterclasses for young people in Port Harcourt.');
+
   return (
     <div>
-      {/* Hero */}
-      <section className="bg-brand-cream pt-12 pb-16 lg:pt-16 lg:pb-20">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionLabel>Programs</SectionLabel>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="mt-6 font-serif text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-brand-navy md:text-5xl lg:text-6xl text-balance">
-              Building the capacity to go further.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-6 text-lg leading-relaxed text-brand-navy/60 text-pretty">
-              Pathways designed to help young people develop practical skills, build character, and step into opportunity. Not because technology is the destination — but because capacity creates options.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        label="Programs"
+        title="Building the capacity to go further."
+        subtitle="Pathways designed to help young people develop practical skills, build character, and step into opportunity. Not because technology is the destination — but because capacity creates options."
+        image="/images/photos/media-desk.webp"
+        imagePosition="center 40%"
+      />
 
       {/* Digital Upskilling Feature */}
       <section className="bg-white py-16 lg:py-20">
@@ -61,9 +54,9 @@ export function ProgramsPage() {
             <Reveal>
               <div className="overflow-hidden rounded-3xl">
                 <img
-                  src="/images/IMG_9500_2.JPG"
+                  src="/images/photos/team-campaign-signs.webp"
                   alt="The Stop The Cycle team preparing digital media equipment"
-                  className="h-[420px] w-full object-cover object-top bg-brand-cream-warm lg:h-[500px]"
+                  loading="lazy" decoding="async" className="h-[420px] w-full object-cover object-top bg-brand-cream-warm lg:h-[500px]"
                 />
               </div>
             </Reveal>
@@ -77,12 +70,12 @@ export function ProgramsPage() {
                 </h2>
               </Reveal>
               <Reveal delay={0.15}>
-                <p className="text-base leading-relaxed text-brand-navy/60 text-pretty">
+                <p className="text-base leading-relaxed text-brand-navy/75 text-pretty">
                   A university degree can tell the world what you studied. It cannot, by itself, tell the world what you are capable of building. The future will belong to people who are willing to keep learning.
                 </p>
               </Reveal>
               <Reveal delay={0.2}>
-                <p className="text-base leading-relaxed text-brand-navy/60 text-pretty">
+                <p className="text-base leading-relaxed text-brand-navy/75 text-pretty">
                   Through digital training and masterclasses, Stop The Cycle creates opportunities for young people to develop practical capabilities in areas such as AI, digital media, automation, content creation and emerging technologies.
                 </p>
               </Reveal>
@@ -93,7 +86,7 @@ export function ProgramsPage() {
               </Reveal>
               <Reveal delay={0.3}>
                 <Button to="/get-involved" variant="primary">
-                  Explore Our Programs
+                  Join a Program
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Reveal>
@@ -110,13 +103,13 @@ export function ProgramsPage() {
           </Reveal>
           <StaggerGroup className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {programAreas.map((area) => (
-              <StaggerItem key={area.title}>
+              <StaggerItem key={area.title} className="h-full">
                 <div className="card-hover flex h-full flex-col gap-4 rounded-3xl border border-brand-navy/8 bg-white p-8">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-emerald/10">
                     <area.icon className="h-6 w-6 text-brand-emerald" />
                   </div>
                   <h3 className="text-lg font-bold text-brand-navy">{area.title}</h3>
-                  <p className="text-sm leading-relaxed text-brand-navy/50">{area.description}</p>
+                  <p className="text-sm leading-relaxed text-brand-navy/75">{area.description}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -138,12 +131,12 @@ export function ProgramsPage() {
                 </h2>
               </Reveal>
               <Reveal delay={0.1}>
-                <p className="text-base leading-relaxed text-brand-navy/60 text-pretty">
+                <p className="text-base leading-relaxed text-brand-navy/75 text-pretty">
                   Every Thursday, people gather to talk about the things that matter. Purpose. Relationships. Character. Leadership. Failure. Faith. Growth. The questions we are often afraid to ask.
                 </p>
               </Reveal>
               <Reveal delay={0.15}>
-                <p className="text-base leading-relaxed text-brand-navy/60 text-pretty">
+                <p className="text-base leading-relaxed text-brand-navy/75 text-pretty">
                   Because becoming a better person is not always about learning something new. Sometimes it is about unlearning what has been holding you back.
                 </p>
               </Reveal>
@@ -155,7 +148,7 @@ export function ProgramsPage() {
               <Reveal delay={0.25}>
                 <div className="rounded-2xl border border-brand-emerald/20 bg-brand-emerald/5 p-5">
                   <p className="text-sm font-semibold text-brand-emerald">Every Thursday · 5:30 PM</p>
-                  <p className="mt-1 text-sm text-brand-navy/50">Port Harcourt · Editable event information</p>
+                  <p className="mt-1 text-sm text-brand-navy/75">Port Harcourt</p>
                 </div>
               </Reveal>
               <Reveal delay={0.3}>
@@ -168,9 +161,9 @@ export function ProgramsPage() {
             <Reveal delay={0.1} className="order-1 lg:order-2">
               <div className="overflow-hidden rounded-3xl">
                 <img
-                  src="/images/IMG_9504_2.JPG"
+                  src="/images/photos/community-phones.webp"
                   alt="Young people gathered for a Stop The Cycle group conversation"
-                  className="h-[420px] w-full object-cover object-top bg-brand-cream-warm lg:h-[500px]"
+                  loading="lazy" decoding="async" className="h-[420px] w-full object-cover object-top bg-brand-cream-warm lg:h-[500px]"
                 />
               </div>
             </Reveal>
@@ -186,19 +179,19 @@ export function ProgramsPage() {
           </Reveal>
           <StaggerGroup className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
             {programs.map((program) => (
-              <StaggerItem key={program.id}>
-                <div className="group overflow-hidden rounded-3xl border border-brand-navy/8 bg-white card-hover">
+              <StaggerItem key={program.id} className="h-full">
+                <div id={program.id} className="group flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-brand-navy/8 bg-white card-hover">
                   <div className="relative h-56 overflow-hidden">
-                    <img src={program.image} alt={program.alt} className="img-zoom h-full w-full object-cover object-top bg-brand-cream-warm" />
+                    <img src={program.image} alt={program.alt} loading="lazy" decoding="async" className="img-zoom h-full w-full object-cover object-top bg-brand-cream-warm" />
                     <div className="absolute left-4 top-4 rounded-full bg-white/90 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-emerald backdrop-blur-sm">
                       {program.category}
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className="flex flex-1 flex-col p-6">
                     <h3 className="text-lg font-bold text-brand-navy">{program.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-brand-navy/50">{program.description}</p>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-brand-navy/75">{program.description}</p>
                     <div className="mt-4">
-                      <ArrowLink to="/get-involved">Learn more</ArrowLink>
+                      <ArrowLink to="/get-involved">Join this program</ArrowLink>
                     </div>
                   </div>
                 </div>
@@ -217,7 +210,7 @@ export function ProgramsPage() {
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-6 text-lg text-white/60 text-pretty">
+            <p className="mt-6 text-lg text-white/75 text-pretty">
               Whatever your starting point, there is a pathway here for you.
             </p>
           </Reveal>

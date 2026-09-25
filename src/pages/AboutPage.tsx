@@ -2,6 +2,8 @@ import { ArrowRight, Target, Eye, Compass, Globe } from 'lucide-react';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { Button } from '@/components/Buttons';
 import { SectionLabel, SectionHeader } from '@/components/SectionHeader';
+import { PageHero } from '@/components/PageHero';
+import { usePageMeta } from '@/lib/usePageMeta';
 
 const beliefs = [
   { title: 'What We Believe', body: 'There is more in you than your circumstances have allowed you to see. Young people do not need to be rescued from their future. They need to be equipped for it.' },
@@ -15,21 +17,16 @@ const missionBlocks = [
 ];
 
 export function AboutPage() {
+  usePageMeta('About', 'Why Stop The Cycle exists: our story, mission, vision and the founder behind the movement.');
+
   return (
     <div>
-      {/* Hero */}
-      <section className="bg-brand-cream pt-12 pb-16 lg:pt-16 lg:pb-20">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionLabel>About</SectionLabel>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="mt-6 font-serif text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-brand-navy md:text-5xl lg:text-6xl text-balance">
-              Why we stop the cycle.
-            </h1>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        label="About"
+        title="Why we stop the cycle."
+        image="/images/photos/summit-audience-front-row.webp"
+        imagePosition="center 35%"
+      />
 
       {/* Our Story */}
       <section className="bg-white py-16 lg:py-20">
@@ -37,7 +34,7 @@ export function AboutPage() {
           <Reveal>
             <SectionLabel>Our Story</SectionLabel>
           </Reveal>
-          <div className="mt-6 flex flex-col gap-5 text-lg leading-relaxed text-brand-navy/60 text-pretty">
+          <div className="mt-6 flex flex-col gap-5 text-lg leading-relaxed text-brand-navy/75 text-pretty">
             <Reveal delay={0.05}>
               <p>Everything starts with a question.</p>
             </Reveal>
@@ -59,7 +56,7 @@ export function AboutPage() {
               <StaggerItem key={belief.title}>
                 <div className="flex flex-col gap-4">
                   <h3 className="font-serif text-2xl font-semibold tracking-[-0.02em] text-brand-navy">{belief.title}</h3>
-                  <p className="text-lg leading-relaxed text-brand-navy/60 text-pretty">{belief.body}</p>
+                  <p className="text-lg leading-relaxed text-brand-navy/75 text-pretty">{belief.body}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -75,13 +72,13 @@ export function AboutPage() {
           </Reveal>
           <StaggerGroup className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
             {missionBlocks.map((block) => (
-              <StaggerItem key={block.title}>
+              <StaggerItem key={block.title} className="h-full">
                 <div className="card-hover flex h-full flex-col gap-5 rounded-3xl border border-brand-navy/8 bg-brand-cream p-8">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-emerald/10">
                     <block.icon className="h-6 w-6 text-brand-emerald" />
                   </div>
                   <h3 className="text-lg font-bold text-brand-navy">{block.title}</h3>
-                  <p className="text-sm leading-relaxed text-brand-navy/50">{block.body}</p>
+                  <p className="text-sm leading-relaxed text-brand-navy/75">{block.body}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -98,12 +95,14 @@ export function AboutPage() {
               <div className="relative">
                 <div className="overflow-hidden rounded-3xl">
                   <img
-                    src="/images/hero/image copy 5.png"
+                    src="/images/photos/founder-portrait.webp"
                     alt="Portrait of Engr. Uche Juan Augustine"
+                    loading="lazy"
+                    decoding="async"
                     className="h-[460px] w-full bg-brand-cream-warm object-cover object-top lg:h-[540px]"
                   />
                 </div>
-                <div className="absolute -bottom-4 -right-4 rounded-2xl bg-brand-emerald px-6 py-4 text-white shadow-lg">
+                <div className="absolute -bottom-4 right-4 rounded-2xl lg:-right-4 bg-brand-emerald px-6 py-4 text-white shadow-lg">
                   <p className="text-sm font-bold">Founder & Convener</p>
                 </div>
               </div>
@@ -124,7 +123,7 @@ export function AboutPage() {
                   Founder · Convener · Lead Pastor
                 </p>
               </Reveal>
-              <div className="flex flex-col gap-4 text-base leading-relaxed text-brand-navy/60 text-pretty">
+              <div className="flex flex-col gap-4 text-base leading-relaxed text-brand-navy/75 text-pretty">
                 <Reveal delay={0.2}>
                   <p>
                     For Uche Juan Augustine, this work is not simply an organization. It is a response to what he has seen, experienced and come to believe about the potential of young people.
@@ -142,10 +141,15 @@ export function AboutPage() {
                 </Reveal>
               </div>
               <Reveal delay={0.35}>
-                <Button to="/get-involved" variant="ghost">
-                  Join the Movement
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <Button to="/founder-snippets" variant="primary">
+                    Watch Founder's Snippets
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                  <Button to="/join" variant="ghost">
+                    Join the Movement
+                  </Button>
+                </div>
               </Reveal>
             </div>
           </div>
@@ -163,7 +167,7 @@ export function AboutPage() {
               A better future doesn't begin with a country. <span className="font-serif italic font-normal text-brand-emerald">It begins with people.</span>
             </h2>
           </Reveal>
-          <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-brand-navy/60 text-pretty">
+          <div className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-brand-navy/75 text-pretty">
             <Reveal delay={0.1}>
               <p>People who think differently. People who have the courage to build. People who can create value. People who can lead. People who understand that their lives are connected to something bigger than themselves.</p>
             </Reveal>
@@ -186,13 +190,8 @@ export function AboutPage() {
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-6 text-lg leading-relaxed text-white/60 text-pretty">
+            <p className="mt-6 text-lg leading-relaxed text-white/75 text-pretty">
               The organization's message about youth development, opportunity and economic empowerment has also been carried into wider global conversations — including platforms that extend far beyond Port Harcourt.
-            </p>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <p className="mt-4 text-base leading-relaxed text-white/40 text-pretty">
-              Specific global platforms and engagements will be documented here as verified information becomes available.
             </p>
           </Reveal>
         </div>

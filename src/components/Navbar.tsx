@@ -3,72 +3,73 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { navItems, organization } from '@/data/organization';
 
-const logoSrc = '/images/47c2f69a-b252-4c2e-bb50-56d78b142dd3.png';
+const logoSrc = '/images/logo.webp';
+
+const secondaryItems = [
+  { label: "Founder's Snippets", path: '/founder-snippets' },
+  { label: 'Join the Movement', path: '/join' },
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [darkSection, setDarkSection] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-      const dark = document.querySelector('[data-nav-dark="true"]');
-      if (dark) {
-        const rect = dark.getBoundingClientRect();
-        setDarkSection(rect.top <= 60 && rect.bottom > 60);
-      } else {
-        setDarkSection(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [location.pathname]);
+  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
   }, [location.pathname]);
 
-  const isDark = darkSection && !scrolled;
+  // While the mobile menu is open: lock page scroll and close on Escape.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [mobileOpen]);
+
+  const isActive = (path: string) => location.pathname === path || location.pathname.startsWith(`${path}/`);
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
-          scrolled
-            ? 'bg-white/90 backdrop-blur-md shadow-sm'
-            : isDark
-            ? 'bg-transparent'
-            : 'bg-transparent'
+        className={`fixed top-0 left-0 z-50 w-full bg-white/95 backdrop-blur-md transition-shadow duration-300 ${
+          scrolled ? 'shadow-sm' : ''
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-18 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5">
-            <img src={logoSrc} alt="Stop The Cycle" className="h-10 w-10 rounded-lg object-contain" />
-            <span className={`text-base font-extrabold tracking-tight transition-colors ${
-              isDark && !scrolled ? 'text-white' : 'text-brand-navy'
-            }`}>
+            <img src={logoSrc} alt="" width={40} height={40} className="h-10 w-10 rounded-lg object-contain" />
+            <span className="whitespace-nowrap text-base font-extrabold tracking-tight text-brand-navy">
               {organization.name}
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden items-center gap-0.5 lg:flex">
+          <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
             {navItems.map((item) => {
-              const active = location.pathname === item.path;
+              const active = isActive(item.path);
               return (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
-                    active
-                      ? isDark && !scrolled ? 'text-white' : 'text-brand-emerald'
-                      : isDark && !scrolled
-                      ? 'text-white/70 hover:text-white'
-                      : 'text-brand-navy/60 hover:text-brand-navy'
+                  aria-current={active ? 'page' : undefined}
+                  className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                    active ? 'text-brand-emerald' : 'text-brand-navy/75 hover:text-brand-navy'
                   }`}
                 >
                   {item.label}
@@ -84,17 +85,18 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               to="/get-involved"
-              className="hidden items-center gap-1.5 rounded-full bg-brand-emerald px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-brand-emerald-light hover:shadow-lg hover:shadow-brand-emerald/20 sm:inline-flex"
+              className="hidden items-center gap-1.5 whitespace-nowrap rounded-full bg-brand-emerald px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-brand-emerald-light hover:shadow-lg hover:shadow-brand-emerald/20 sm:inline-flex"
             >
               Get Involved
               <ArrowRight className="h-4 w-4" />
             </Link>
             <button
+              type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`flex h-10 w-10 items-center justify-center rounded-lg transition-colors lg:hidden ${
-                isDark && !scrolled ? 'text-white' : 'text-brand-navy'
-              }`}
-              aria-label="Toggle menu"
+              className="flex h-11 w-11 items-center justify-center rounded-lg text-brand-navy lg:hidden"
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -104,17 +106,18 @@ export function Navbar() {
 
       {/* Mobile full-screen menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-40 bg-white lg:hidden">
-          <div className="flex h-full flex-col px-6 pt-20 pb-8">
-            <nav className="flex flex-col gap-1">
-              {navItems.map((item) => {
-                const active = location.pathname === item.path;
+        <div id="mobile-menu" className="fixed inset-0 z-[45] overflow-y-auto bg-white lg:hidden">
+          <div className="flex min-h-full flex-col px-6 pt-20 pb-8">
+            <nav aria-label="Mobile" className="flex flex-col gap-1">
+              {[{ label: 'Home', path: '/' }, ...navItems].map((item) => {
+                const active = item.path === '/' ? location.pathname === '/' : isActive(item.path);
                 return (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`rounded-xl px-4 py-4 text-lg font-semibold transition-colors ${
-                      active ? 'bg-brand-cream-warm text-brand-emerald' : 'text-brand-navy/70 hover:text-brand-navy'
+                    aria-current={active ? 'page' : undefined}
+                    className={`rounded-xl px-4 py-3.5 text-lg font-semibold transition-colors ${
+                      active ? 'bg-brand-cream-warm text-brand-emerald' : 'text-brand-navy/80 hover:text-brand-navy'
                     }`}
                   >
                     {item.label}
@@ -122,6 +125,13 @@ export function Navbar() {
                 );
               })}
             </nav>
+            <div className="mt-3 flex flex-col gap-1 border-t border-brand-navy/10 pt-3">
+              {secondaryItems.map((item) => (
+                <Link key={item.path} to={item.path} className="rounded-xl px-4 py-3 text-base font-medium text-brand-navy/75 hover:text-brand-navy">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
             <Link
               to="/get-involved"
               className="mt-6 flex items-center justify-center gap-2 rounded-full bg-brand-emerald px-6 py-4 text-base font-semibold text-white"
@@ -130,7 +140,7 @@ export function Navbar() {
               <ArrowRight className="h-5 w-5" />
             </Link>
             <div className="mt-auto pt-8">
-              <p className="text-sm text-brand-navy/40">{organization.tagline}</p>
+              <p className="text-sm text-brand-navy/70">{organization.tagline}</p>
             </div>
           </div>
         </div>

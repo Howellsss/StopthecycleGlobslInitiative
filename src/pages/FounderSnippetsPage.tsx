@@ -1,7 +1,9 @@
 import { ArrowRight } from 'lucide-react';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { Button } from '@/components/Buttons';
-import { SectionLabel, SectionHeader } from '@/components/SectionHeader';
+import { SectionHeader } from '@/components/SectionHeader';
+import { PageHero } from '@/components/PageHero';
+import { usePageMeta } from '@/lib/usePageMeta';
 
 const snippets = [
   {
@@ -22,23 +24,17 @@ const snippets = [
 ];
 
 export function FounderSnippetsPage() {
+  usePageMeta("Founder's Snippets", 'Short video reflections from Engr. Uche Juan Augustine on growth, leadership, capacity and building a different future.');
+
   return (
     <div>
-      <section className="bg-brand-cream pt-12 pb-12 lg:pt-16 lg:pb-16">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <Reveal><SectionLabel>Founder’s Snippets</SectionLabel></Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="mt-6 font-serif text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-brand-navy md:text-5xl lg:text-6xl text-balance">
-              Short thoughts for the road ahead.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-6 text-lg leading-relaxed text-brand-navy/60 text-pretty">
-              Watch brief reflections from Engr. Uche Juan Augustine on growth, leadership, capacity and the work of building a different future.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        label="Founder's Snippets"
+        title="Short thoughts for the road ahead."
+        subtitle="Watch brief reflections from Engr. Uche Juan Augustine on growth, leadership, capacity and the work of building a different future."
+        image="/images/hero/convener-stage.webp"
+        imagePosition="center 20%"
+      />
 
       <section className="bg-white py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -47,8 +43,8 @@ export function FounderSnippetsPage() {
           </Reveal>
           <StaggerGroup className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
             {snippets.map((snippet) => (
-              <StaggerItem key={snippet.title}>
-                <article className="overflow-hidden rounded-3xl border border-brand-navy/8 bg-brand-cream card-hover">
+              <StaggerItem key={snippet.title} className="h-full">
+                <article className="h-full overflow-hidden rounded-3xl border border-brand-navy/8 bg-brand-cream card-hover">
                   <div className="relative aspect-[9/16] overflow-hidden bg-brand-navy">
                     <iframe
                       src={snippet.embedUrl}
@@ -57,11 +53,12 @@ export function FounderSnippetsPage() {
                       allow="fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                       referrerPolicy="strict-origin-when-cross-origin"
                       allowFullScreen
+                      loading="lazy"
                     />
                   </div>
                   <div className="p-6">
                     <h2 className="font-serif text-2xl font-semibold text-brand-navy">{snippet.title}</h2>
-                    <p className="mt-3 text-sm leading-relaxed text-brand-navy/60">{snippet.description}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-brand-navy/75">{snippet.description}</p>
                   </div>
                 </article>
               </StaggerItem>
@@ -69,7 +66,7 @@ export function FounderSnippetsPage() {
           </StaggerGroup>
           <Reveal>
             <div className="mt-12 text-center">
-              <Button to="/get-involved" variant="primary">
+              <Button to="/join" variant="primary">
                 Join the Movement
                 <ArrowRight className="h-4 w-4" />
               </Button>

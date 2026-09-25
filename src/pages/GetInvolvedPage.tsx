@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { SectionLabel } from '@/components/SectionHeader';
+import { PageHero } from '@/components/PageHero';
+import { organization } from '@/data/organization';
+import { usePageMeta } from '@/lib/usePageMeta';
 
 export function GetInvolvedPage() {
+  usePageMeta('Get Involved', 'Join a program, volunteer, mentor or partner with Stop The Cycle.');
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [formHeight, setFormHeight] = useState(800);
 
@@ -35,24 +39,13 @@ export function GetInvolvedPage() {
 
   return (
     <div>
-      {/* Hero */}
-      <section className="bg-brand-cream pt-12 pb-12 lg:pt-16 lg:pb-16">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionLabel>Get Involved</SectionLabel>
-          </Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="mt-6 font-serif text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-brand-navy md:text-5xl lg:text-6xl text-balance">
-              What part will you play?
-            </h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="mt-6 text-lg leading-relaxed text-brand-navy/60 text-pretty">
-              Every movement is built by people who decide to participate. Maybe you want to learn. Maybe you want to teach. Maybe you have resources. Maybe you have experience. Maybe you have a story that someone else needs to hear. Whatever brought you here, there is a way to contribute.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHero
+        label="Get Involved"
+        title="What part will you play?"
+        subtitle="Maybe you want to learn. Maybe you want to teach. Maybe you have resources, experience, or a story someone else needs to hear. Whatever brought you here, there is a way to contribute."
+        image="/images/photos/community-phones.webp"
+        imagePosition="center 30%"
+      />
 
       {/* Embedded survey form */}
       <section className="bg-white py-16 lg:py-24">
@@ -62,7 +55,7 @@ export function GetInvolvedPage() {
               <iframe
                 ref={iframeRef}
                 src="https://link.thedemoaccount.com/widget/survey/37c0McLyhfbWva5xUtGg"
-                title="survey"
+                title="Stop The Cycle sign-up form"
                 id="37c0McLyhfbWva5xUtGg"
                 data-cookie-consent="false"
                 style={{ border: 'none', width: '100%', height: `${formHeight}px` }}
@@ -72,6 +65,12 @@ export function GetInvolvedPage() {
               />
             </div>
           </Reveal>
+          <p className="mt-6 text-center text-sm text-brand-navy/75">
+            Form not loading? Email{' '}
+            <a href={`mailto:${organization.email}`} className="font-semibold text-brand-emerald underline underline-offset-4">{organization.email}</a>{' '}
+            or call{' '}
+            <a href={`tel:${organization.phones[0].tel}`} className="font-semibold text-brand-emerald underline underline-offset-4">{organization.phones[0].display}</a>.
+          </p>
         </div>
       </section>
 
@@ -87,23 +86,30 @@ export function GetInvolvedPage() {
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-6 text-lg leading-relaxed text-brand-navy/60 text-pretty">
+            <p className="mt-6 text-lg leading-relaxed text-brand-navy/75 text-pretty">
               No generation changes its future alone. We believe the work becomes stronger when people bring what they have to the table — expertise, technology, funding, networks, platforms, ideas and relationships.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="mt-4 text-base leading-relaxed text-brand-navy/50 text-pretty">
+            <p className="mt-4 text-base leading-relaxed text-brand-navy/75 text-pretty">
               If you represent an organization that believes young people are worth investing in, we would like to hear from you. Not because we are looking for logos. Because we are looking for people willing to build.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="mailto:hello@stopthecycle.org"
+                href={`mailto:${organization.email}`}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-navy px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-brand-navy-deep"
               >
                 Start a Conversation
                 <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href={`tel:${organization.phones[0].tel}`}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-navy/20 px-7 py-3.5 text-sm font-semibold text-brand-navy transition-all duration-300 hover:border-brand-emerald hover:text-brand-emerald"
+              >
+                <Phone className="h-4 w-4" />
+                Call {organization.phones[0].display}
               </a>
             </div>
           </Reveal>

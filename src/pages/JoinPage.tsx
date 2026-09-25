@@ -4,37 +4,38 @@ import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { Button } from '@/components/Buttons';
 import { SectionLabel, SectionHeader } from '@/components/SectionHeader';
 import { organization } from '@/data/organization';
+import { PageHero } from '@/components/PageHero';
+import { usePageMeta } from '@/lib/usePageMeta';
 
 const pathways = [
-  { icon: GraduationCap, title: 'Join a Program', description: 'Develop digital skills, leadership capacity and practical capabilities.' },
-  { icon: Calendar, title: 'Attend an Event', description: 'Show up at a masterclass, workshop or community gathering.' },
-  { icon: Users, title: 'Become a Volunteer', description: 'Contribute your time, skills and energy behind the scenes.' },
-  { icon: HandHeart, title: 'Become a Mentor', description: 'Share your experience with someone who is still finding their way.' },
-  { icon: Briefcase, title: 'Collaborate', description: 'Bring your organization into the conversation.' },
-  { icon: Heart, title: 'Support the Movement', description: 'Help create opportunities for young people who need them.' },
+  { icon: GraduationCap, title: 'Join a Program', description: 'Develop digital skills, leadership capacity and practical capabilities.', to: '/programs' },
+  { icon: Calendar, title: 'Attend an Event', description: 'Show up at a masterclass, workshop or community gathering.', to: '/events' },
+  { icon: Users, title: 'Become a Volunteer', description: 'Contribute your time, skills and energy behind the scenes.', to: '/get-involved' },
+  { icon: HandHeart, title: 'Become a Mentor', description: 'Share your experience with someone who is still finding their way.', to: '/get-involved' },
+  { icon: Briefcase, title: 'Collaborate', description: 'Bring your organization into the conversation.', to: '/get-involved' },
+  { icon: Heart, title: 'Support the Movement', description: 'Help create opportunities for young people who need them.', to: '/get-involved' },
 ];
 
 export function JoinPage() {
+  usePageMeta('Join the Movement', 'Six ways to take part in Stop The Cycle: programs, events, volunteering, mentoring, collaboration and support.');
+
   return (
     <div>
+      <PageHero
+        label="Join the Movement"
+        title="There's a place for you here."
+        image="/images/photos/team-campaign-signs.webp"
+        imagePosition="center 35%"
+      />
+
       <section className="bg-brand-cream py-12 lg:py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Reveal>
-              <SectionLabel>Join the Movement</SectionLabel>
-            </Reveal>
-            <Reveal delay={0.05}>
-              <h1 className="mt-6 font-serif text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-brand-navy md:text-5xl lg:text-6xl text-balance">
-                There's a place for you here.
-              </h1>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="mt-6 text-lg leading-relaxed text-brand-navy/60 text-pretty">
-                You don't have to have everything figured out. You don't have to already be successful. You don't need to know exactly where your journey is going. You only need to be willing to take the next step.
-              </p>
-            </Reveal>
-          </div>
-          <div className="mt-8 flex flex-col gap-3 border-t border-brand-navy/10 pt-8 text-lg leading-relaxed text-brand-navy/60 text-pretty">
+          <Reveal>
+            <p className="text-center text-lg leading-relaxed text-brand-navy/75 text-pretty">
+              You don't have to have everything figured out. You don't have to already be successful. You don't need to know exactly where your journey is going. You only need to be willing to take the next step.
+            </p>
+          </Reveal>
+          <div className="mt-8 flex flex-col gap-3 border-t border-brand-navy/10 pt-8 text-lg leading-relaxed text-brand-navy/75 text-pretty">
             <Reveal>
               <p>You can join a program. Attend an event. Come to the Summit. Volunteer your skills. Become a mentor. Support the work. Bring your organization into the conversation.</p>
             </Reveal>
@@ -56,13 +57,17 @@ export function JoinPage() {
           </Reveal>
           <StaggerGroup className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {pathways.map((path) => (
-              <StaggerItem key={path.title}>
-                <Link to="/get-involved" className="card-hover flex h-full flex-col gap-4 rounded-3xl border border-brand-navy/8 bg-white p-7">
+              <StaggerItem key={path.title} className="h-full">
+                <Link to={path.to} className="card-hover group flex h-full flex-col gap-4 rounded-3xl border border-brand-navy/8 bg-white p-7">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-emerald/10">
                     <path.icon className="h-6 w-6 text-brand-emerald" />
                   </div>
                   <h3 className="text-lg font-bold text-brand-navy">{path.title}</h3>
-                  <p className="text-sm leading-relaxed text-brand-navy/50">{path.description}</p>
+                  <p className="flex-1 text-sm leading-relaxed text-brand-navy/75">{path.description}</p>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-emerald">
+                    Start here
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
                 </Link>
               </StaggerItem>
             ))}
@@ -77,9 +82,9 @@ export function JoinPage() {
             <Reveal>
               <div className="overflow-hidden rounded-3xl">
                 <img
-                  src="/images/IMG_9500_2.JPG"
+                  src="/images/photos/team-campaign-signs.webp"
                   alt="Young people gathered for a Stop The Cycle group conversation"
-                  className="h-[380px] w-full object-cover object-top bg-brand-cream-warm lg:h-[440px]"
+                  loading="lazy" decoding="async" className="h-[380px] w-full object-cover object-top bg-brand-cream-warm lg:h-[440px]"
                 />
               </div>
             </Reveal>
@@ -93,12 +98,12 @@ export function JoinPage() {
                 </h2>
               </Reveal>
               <Reveal delay={0.15}>
-                <p className="text-lg leading-relaxed text-brand-navy/60 text-pretty">
+                <p className="text-lg leading-relaxed text-brand-navy/75 text-pretty">
                   There is a particular kind of joy that comes from knowing you helped make something possible for someone else. A conversation. A photograph. A registration desk. A training session. A connection. A word of encouragement.
                 </p>
               </Reveal>
               <Reveal delay={0.2}>
-                <p className="text-base leading-relaxed text-brand-navy/50 text-pretty">
+                <p className="text-base leading-relaxed text-brand-navy/75 text-pretty">
                   Every movement needs people who are willing to serve behind the scenes. If that sounds like you, there is a place here for you.
                 </p>
               </Reveal>
