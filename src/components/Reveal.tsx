@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react';
+import { forwardRef, type ReactNode } from 'react';
 import { motion, type Variants } from 'framer-motion';
 
 const easeCurve = [0.16, 1, 0.3, 1] as const;
@@ -33,9 +33,13 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
   );
 }
 
-export function StaggerGroup({ children, className }: { children: ReactNode; className?: string }) {
+export const StaggerGroup = forwardRef<HTMLDivElement, { children: ReactNode; className?: string }>(function StaggerGroup(
+  { children, className },
+  ref
+) {
   return (
     <motion.div
+      ref={ref}
       className={className}
       variants={staggerContainer}
       initial="hidden"
@@ -45,7 +49,7 @@ export function StaggerGroup({ children, className }: { children: ReactNode; cla
       {children}
     </motion.div>
   );
-}
+});
 
 export function StaggerItem({ children, className }: { children: ReactNode; className?: string }) {
   return (
