@@ -5,6 +5,10 @@ export interface Program {
   description: string;
   image: string;
   alt: string;
+  /** Regular meeting time, shown on the card when set. */
+  schedule?: string;
+  /** Show this program as a lime feature card instead of a photo card. */
+  highlight?: boolean;
 }
 
 export const programs: Program[] = [
@@ -25,6 +29,8 @@ export const programs: Program[] = [
       'A space for honest conversations, personal growth, mentorship and the difficult work of becoming who you were created to be. Every Thursday, people gather to talk about the things that matter.',
     image: '/images/photos/group-conversation.webp',
     alt: 'Young people gathered for a Stop The Cycle group conversation',
+    schedule: 'Every Thursday · 5:30 PM',
+    highlight: true,
   },
   {
     id: 'leadership',
