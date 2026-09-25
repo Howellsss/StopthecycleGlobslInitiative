@@ -16,7 +16,7 @@ export const organization = {
   // Leave a link empty to hide its icon in the footer.
   social: {
     instagram: 'https://www.instagram.com/stopthecycleglobalsummit/',
-    facebook: '',
+    facebook: 'https://www.facebook.com/stopthecycleng/',
     linkedin: '',
     youtube: '',
   },
