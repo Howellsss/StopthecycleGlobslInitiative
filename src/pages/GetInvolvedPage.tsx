@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { ArrowRight, Phone } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { SectionLabel } from '@/components/SectionHeader';
@@ -8,32 +8,14 @@ import { usePageMeta } from '@/lib/usePageMeta';
 
 export function GetInvolvedPage() {
   usePageMeta('Get Involved', 'Join a program, volunteer, mentor or partner with Stop The Cycle.');
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [formHeight, setFormHeight] = useState(800);
-
+  // The form provider's script resizes the survey iframe (matched by its id) as the form changes.
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = 'https://link.thedemoaccount.com/js/form_embed.js';
+    script.src = 'https://link.msgsndr.com/js/form_embed.js';
     script.async = true;
     document.body.appendChild(script);
-
-    const onMessage = (e: MessageEvent) => {
-      if (e.origin !== 'https://link.thedemoaccount.com') return;
-      const data = e.data;
-      if (data && typeof data === 'object') {
-        if (data.event === 'form:resized' && typeof data.height === 'number') {
-          setFormHeight(data.height);
-        } else if (data.event === 'form:loaded' && typeof data.height === 'number') {
-          setFormHeight(data.height);
-        }
-      }
-    };
-
-    window.addEventListener('message', onMessage);
-
     return () => {
       script.remove();
-      window.removeEventListener('message', onMessage);
     };
   }, []);
 
@@ -53,15 +35,12 @@ export function GetInvolvedPage() {
           <Reveal>
             <div className="overflow-hidden rounded-3xl border border-brand-navy/8 bg-brand-cream p-4 shadow-sm md:p-6">
               <iframe
-                ref={iframeRef}
-                src="https://link.thedemoaccount.com/widget/survey/37c0McLyhfbWva5xUtGg"
-                title="Stop The Cycle sign-up form"
-                id="37c0McLyhfbWva5xUtGg"
-                data-cookie-consent="false"
-                style={{ border: 'none', width: '100%', height: `${formHeight}px` }}
+                src="https://api.leadconnectorhq.com/widget/survey/LFK9nWDfUzpVkNg76rSX"
+                id="LFK9nWDfUzpVkNg76rSX"
+                title="Stop the Circle Global Initiative Survey"
+                style={{ border: 'none', width: '100%', height: '900px' }}
                 scrolling="no"
-                className="w-full rounded-2xl transition-[height] duration-300"
-                loading="eager"
+                className="w-full rounded-2xl"
               />
             </div>
           </Reveal>
