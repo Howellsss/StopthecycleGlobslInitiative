@@ -5,10 +5,7 @@ import { navItems, organization } from '@/data/organization';
 
 const logoSrc = '/images/logo.webp';
 
-const secondaryItems = [
-  { label: "Founder's Snippets", path: '/founder-snippets' },
-  { label: 'Join the Movement', path: '/join' },
-];
+const secondaryItems = [{ label: 'Join the Movement', path: '/join' }];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -60,7 +57,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
+          <nav aria-label="Main" className="hidden items-center gap-0.5 lg:flex xl:gap-1">
             {navItems.map((item) => {
               const active = isActive(item.path);
               return (
@@ -68,7 +65,7 @@ export function Navbar() {
                   key={item.path}
                   to={item.path}
                   aria-current={active ? 'page' : undefined}
-                  className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`relative whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium transition-colors xl:px-4 ${
                     active ? 'text-brand-emerald' : 'text-brand-navy/75 hover:text-brand-navy'
                   }`}
                 >

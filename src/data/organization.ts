@@ -29,12 +29,12 @@ export const navItems = [
   { label: 'Summit', path: '/summits' },
   { label: 'Events', path: '/events' },
   { label: 'Gallery', path: '/gallery' },
+  { label: "Founder's Snippets", path: '/founder-snippets' },
 ];
 
 /** Full list of pages, used in the footer. */
 export const footerNavItems = [
   { label: 'Home', path: '/' },
   ...navItems,
-  { label: "Founder's Snippets", path: '/founder-snippets' },
   { label: 'Join the Movement', path: '/join' },
 ];
