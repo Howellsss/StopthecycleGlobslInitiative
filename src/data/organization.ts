@@ -24,6 +24,7 @@ export const organization = {
 
 /** Primary navigation shown in the header and mobile menu. */
 export const navItems = [
+  { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
   { label: 'Programs', path: '/programs' },
   { label: 'Summit', path: '/summits' },
@@ -34,7 +35,6 @@ export const navItems = [
 
 /** Full list of pages, used in the footer. */
 export const footerNavItems = [
-  { label: 'Home', path: '/' },
   ...navItems,
   { label: 'Join the Movement', path: '/join' },
 ];

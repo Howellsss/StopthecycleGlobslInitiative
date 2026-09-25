@@ -38,7 +38,8 @@ export function Navbar() {
     };
   }, [mobileOpen]);
 
-  const isActive = (path: string) => location.pathname === path || location.pathname.startsWith(`${path}/`);
+  const isActive = (path: string) =>
+    path === '/' ? location.pathname === '/' : location.pathname === path || location.pathname.startsWith(`${path}/`);
 
   return (
     <>
@@ -106,8 +107,8 @@ export function Navbar() {
         <div id="mobile-menu" className="fixed inset-0 z-[45] overflow-y-auto bg-white lg:hidden">
           <div className="flex min-h-full flex-col px-6 pt-20 pb-8">
             <nav aria-label="Mobile" className="flex flex-col gap-1">
-              {[{ label: 'Home', path: '/' }, ...navItems].map((item) => {
-                const active = item.path === '/' ? location.pathname === '/' : isActive(item.path);
+              {navItems.map((item) => {
+                const active = isActive(item.path);
                 return (
                   <Link
                     key={item.path}
