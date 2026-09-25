@@ -242,6 +242,29 @@ export function HomePage() {
           <StaggerGroup className="scrollbar-none -mx-4 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 md:mx-0 md:mt-14 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
             {programs.map((program) => (
               <StaggerItem key={program.id} className="w-[85%] shrink-0 snap-start sm:w-[60%] md:w-auto">
+                {program.highlight ? (
+                  <Link to={`/programs#${program.id}`} className="group flex h-full flex-col justify-between gap-8 overflow-hidden rounded-3xl bg-brand-lime p-7 card-hover md:p-9">
+                    <div>
+                      <span className="inline-block rounded-full bg-brand-navy px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-lime">
+                        {program.category}
+                      </span>
+                      <h3 className="mt-6 font-serif text-3xl font-semibold leading-[1.05] tracking-[-0.03em] text-brand-navy md:text-4xl text-balance">{program.title}</h3>
+                      <p className="mt-4 text-sm leading-relaxed text-brand-navy/80 md:text-base">{program.description}</p>
+                    </div>
+                    <div className="flex flex-wrap items-center justify-between gap-3 border-t border-brand-navy/15 pt-5">
+                      {program.schedule && (
+                        <span className="inline-flex items-center gap-2 text-sm font-bold text-brand-navy">
+                          <Calendar className="h-4 w-4" />
+                          {program.schedule}
+                        </span>
+                      )}
+                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-navy">
+                        Learn more
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </span>
+                    </div>
+                  </Link>
+                ) : (
                 <Link to={`/programs#${program.id}`} className="group flex h-full flex-col overflow-hidden rounded-3xl border border-brand-navy/10 bg-white card-hover">
                   <div className="relative h-52 overflow-hidden md:h-64">
                     <img src={program.image} alt={program.alt} loading="lazy" decoding="async" className="img-zoom h-full w-full object-cover object-top bg-brand-cream-warm" />
@@ -258,6 +281,7 @@ export function HomePage() {
                     </span>
                   </div>
                 </Link>
+                )}
               </StaggerItem>
             ))}
           </StaggerGroup>

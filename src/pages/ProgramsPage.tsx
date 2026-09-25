@@ -1,4 +1,5 @@
-import { ArrowRight, Cpu, Heart, Compass, TrendingUp, GraduationCap } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Cpu, Heart, Compass, TrendingUp, GraduationCap, Calendar } from 'lucide-react';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { Button, ArrowLink } from '@/components/Buttons';
 import { SectionLabel, SectionHeader } from '@/components/SectionHeader';
@@ -146,9 +147,12 @@ export function ProgramsPage() {
                 </p>
               </Reveal>
               <Reveal delay={0.25}>
-                <div className="rounded-2xl border border-brand-emerald/20 bg-brand-emerald/5 p-5">
-                  <p className="text-sm font-semibold text-brand-emerald">Every Thursday · 5:30 PM</p>
-                  <p className="mt-1 text-sm text-brand-navy/75">Port Harcourt</p>
+                <div className="flex items-center gap-3 rounded-2xl bg-brand-lime p-5 text-brand-navy">
+                  <Calendar className="h-5 w-5 shrink-0" />
+                  <div>
+                    <p className="text-sm font-bold">Every Thursday · 5:30 PM</p>
+                    <p className="text-sm text-brand-navy/80">Port Harcourt</p>
+                  </div>
                 </div>
               </Reveal>
               <Reveal delay={0.3}>
@@ -180,6 +184,29 @@ export function ProgramsPage() {
           <StaggerGroup className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
             {programs.map((program) => (
               <StaggerItem key={program.id} className="h-full">
+                {program.highlight ? (
+                  <div id={program.id} className="flex h-full scroll-mt-24 flex-col justify-between gap-8 overflow-hidden rounded-3xl bg-brand-lime p-7 card-hover md:p-9">
+                    <div>
+                      <span className="inline-block rounded-full bg-brand-navy px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-lime">
+                        {program.category}
+                      </span>
+                      <h3 className="mt-6 font-serif text-3xl font-semibold leading-[1.05] tracking-[-0.03em] text-brand-navy text-balance">{program.title}</h3>
+                      <p className="mt-4 text-sm leading-relaxed text-brand-navy/80 md:text-base">{program.description}</p>
+                    </div>
+                    <div className="flex flex-wrap items-center justify-between gap-3 border-t border-brand-navy/15 pt-4">
+                      {program.schedule && (
+                        <span className="inline-flex items-center gap-2 text-sm font-bold text-brand-navy">
+                          <Calendar className="h-4 w-4" />
+                          {program.schedule}
+                        </span>
+                      )}
+                      <Link to="/get-involved" className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-brand-navy hover:underline">
+                        Join this program
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </div>
+                  </div>
+                ) : (
                 <div id={program.id} className="group flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-brand-navy/8 bg-white card-hover">
                   <div className="relative h-56 overflow-hidden">
                     <img src={program.image} alt={program.alt} loading="lazy" decoding="async" className="img-zoom h-full w-full object-cover object-top bg-brand-cream-warm" />
@@ -195,6 +222,7 @@ export function ProgramsPage() {
                     </div>
                   </div>
                 </div>
+                )}
               </StaggerItem>
             ))}
           </StaggerGroup>
