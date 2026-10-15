@@ -6,6 +6,9 @@ export interface GalleryItem {
   caption: string;
   year: string;
   category: 'Summits' | 'Events' | 'Masterclasses' | 'Community' | 'Volunteers' | 'Behind the Scenes';
+  /** Natural size of the photo, so the gallery can keep its true shape. */
+  width?: number;
+  height?: number;
 }
 
 export const galleryItems: GalleryItem[] = [

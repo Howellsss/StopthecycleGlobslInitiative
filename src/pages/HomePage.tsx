@@ -8,7 +8,7 @@ import { SectionLabel, SectionHeader } from '@/components/SectionHeader';
 import { programs } from '@/data/programs';
 import { currentSummit, isSummitUpcoming, summitThemes } from '@/data/summits';
 import { stories, impactMetrics } from '@/data/stories';
-import { galleryItems } from '@/data/gallery';
+import { summit2026Photos } from '@/data/summit2026';
 import { organization } from '@/data/organization';
 import { usePageMeta } from '@/lib/usePageMeta';
 import { useAutoSlide } from '@/lib/useAutoSlide';
@@ -359,16 +359,16 @@ export function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeader
-              label="Gallery"
+              label="Global Summit 2026"
               title="The moments that move us."
-              subtitle="A movement is measured by the people who show up."
+              subtitle="A movement is measured by the people who show up. Relive the Stop The Cycle Global Summit 2026."
               center
             />
           </Reveal>
           <StaggerGroup className="mt-10 grid grid-cols-2 gap-3 md:mt-14 md:grid-cols-4">
-            {galleryItems.slice(0, 8).map((item) => (
-              <StaggerItem key={item.id}>
-                <Link to="/gallery" className="group relative block overflow-hidden rounded-2xl">
+            {summit2026Photos.filter((_, i) => [0, 15, 8, 18, 7, 28, 33, 30].includes(i)).map((item) => (
+              <StaggerItem key={item.image}>
+                <Link to="/stcgs2026" className="group relative block overflow-hidden rounded-2xl">
                   <img src={item.image} alt={item.alt} loading="lazy" decoding="async" className="img-zoom h-40 w-full object-cover object-top bg-brand-cream-warm sm:h-44 md:h-56" />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="absolute bottom-3 left-3 right-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -378,10 +378,13 @@ export function HomePage() {
               </StaggerItem>
             ))}
           </StaggerGroup>
-          <div className="mt-10 text-center">
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button to="/stcgs2026" variant="primary">
+              Explore STCGS 2026
+              <ArrowRight className="h-4 w-4" />
+            </Button>
             <Button to="/gallery" variant="ghost">
               View Full Gallery
-              <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
 

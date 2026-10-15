@@ -36,6 +36,16 @@ export function isSummitUpcoming(now: Date = new Date()) {
 
 export const summitEditions: SummitEdition[] = [
   {
+    id: '2026',
+    year: '2026',
+    theme: 'The Currencies of the Future',
+    tagline: 'Friday, 2 October 2026 · Suntaal Event Center, Port Harcourt',
+    description: 'Keynotes from Hon. Justice Mabel S. Bello and Dr. Niyi Adesanya, panel sessions, awards and a masterclass on building a sustainable business and career.',
+    image: '/images/summit-2026/stc2026-15-full-house.webp',
+    alt: 'A packed audience at the Stop The Cycle Global Summit 2026',
+    status: 'past',
+  },
+  {
     id: '2025',
     year: '2025',
     theme: 'Leading the Future',
