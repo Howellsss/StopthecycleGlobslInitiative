@@ -10,6 +10,7 @@ import { JoinPage } from '@/pages/JoinPage';
 import { GetInvolvedPage } from '@/pages/GetInvolvedPage';
 import { RegistrationPage } from '@/pages/RegistrationPage';
 import { FounderSnippetsPage } from '@/pages/FounderSnippetsPage';
+import { Summit2026Page } from '@/pages/Summit2026Page';
 import { NotFound } from '@/components/NotFound';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="programs" element={<ProgramsPage />} />
           <Route path="summits" element={<SummitPage />} />
+          <Route path="stcgs2026" element={<Summit2026Page />} />
           <Route path="events" element={<EventsPage />} />
           <Route path="events/register" element={<RegistrationPage />} />
           <Route path="gallery" element={<GalleryPage />} />

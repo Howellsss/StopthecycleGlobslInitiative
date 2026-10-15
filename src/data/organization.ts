@@ -28,6 +28,7 @@ export const navItems = [
   { label: 'About', path: '/about' },
   { label: 'Programs', path: '/programs' },
   { label: 'Summit', path: '/summits' },
+  { label: 'STCGS 2026', path: '/stcgs2026' },
   { label: 'Events', path: '/events' },
   { label: 'Gallery', path: '/gallery' },
   { label: "Founder's Snippets", path: '/founder-snippets' },

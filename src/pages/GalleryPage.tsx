@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { PageHero } from '@/components/PageHero';
 import { usePageMeta } from '@/lib/usePageMeta';
@@ -59,6 +60,20 @@ export function GalleryPage() {
       {/* Gallery */}
       <section className="bg-white py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <Link to="/stcgs2026" className="group mb-12 grid overflow-hidden rounded-3xl bg-brand-navy text-white md:grid-cols-2">
+              <img src="/images/summit-2026/stc2026-15-full-house.webp" alt="A packed audience at the Stop The Cycle Global Summit 2026" loading="lazy" decoding="async" className="img-zoom h-56 w-full object-cover md:h-full" />
+              <div className="flex flex-col justify-center gap-3 p-7 md:p-10">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-lime">New · 41 photos</span>
+                <span className="font-serif text-3xl font-semibold leading-tight tracking-[-0.03em] md:text-4xl">Stop The Cycle Global Summit 2026</span>
+                <span className="text-sm text-white/80 md:text-base">The Currencies of the Future, told in seven chapters: from the welcome at the door to the keynotes, the masterclass and the team behind it all.</span>
+                <span className="mt-2 inline-flex items-center gap-2 text-sm font-bold text-brand-lime">
+                  View the photo story
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
+          </Reveal>
           {/* Filters */}
           <Reveal>
             <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
@@ -127,8 +142,6 @@ export function GalleryPage() {
               </StaggerItem>
             ))}
           </StaggerGroup>
-
-          <p className="mt-8 text-center text-sm text-brand-navy/75">Global Summit 2026 photos by Chase Media.</p>
 
           {filtered.length === 0 && (
             <div className="py-20 text-center">
