@@ -115,7 +115,7 @@ export function GalleryPage() {
                     loading="lazy"
                     decoding="async"
                     className="img-zoom w-full bg-brand-cream-warm object-cover object-top"
-                    style={{ aspectRatio: item.id.length % 3 === 0 ? '4/5' : item.id.length % 2 === 0 ? '1/1' : '4/3' }}
+                    style={{ aspectRatio: item.width && item.height ? `${item.width}/${item.height}` : item.id.length % 3 === 0 ? '4/5' : item.id.length % 2 === 0 ? '1/1' : '4/3' }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="absolute bottom-0 left-0 right-0 p-4 text-left opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -127,6 +127,8 @@ export function GalleryPage() {
               </StaggerItem>
             ))}
           </StaggerGroup>
+
+          <p className="mt-8 text-center text-sm text-brand-navy/75">Global Summit 2026 photos by Chase Media.</p>
 
           {filtered.length === 0 && (
             <div className="py-20 text-center">
