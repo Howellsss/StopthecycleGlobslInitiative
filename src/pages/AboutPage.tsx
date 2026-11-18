@@ -1,4 +1,4 @@
-import { ArrowRight, Target, Eye, Compass, Globe } from 'lucide-react';
+import { Target, Eye, Compass, Globe } from 'lucide-react';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { Button } from '@/components/Buttons';
 import { SectionLabel, SectionHeader } from '@/components/SectionHeader';
@@ -144,7 +144,6 @@ export function AboutPage() {
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <Button to="/founder-snippets" variant="primary">
                     Watch Founder's Snippets
-                    <ArrowRight className="h-4 w-4" />
                   </Button>
                   <Button to="/join" variant="ghost">
                     Join the Movement

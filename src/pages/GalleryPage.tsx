@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { X, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { PageHero } from '@/components/PageHero';
 import { usePageMeta } from '@/lib/usePageMeta';
@@ -69,7 +69,6 @@ export function GalleryPage() {
                 <span className="text-sm text-white/80 md:text-base">The Currencies of the Future, told in seven chapters: from the welcome at the door to the keynotes, the masterclass and the team behind it all.</span>
                 <span className="mt-2 inline-flex items-center gap-2 text-sm font-bold text-brand-lime">
                   View the photo story
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
             </Link>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Play } from 'lucide-react';
+import { Play } from 'lucide-react';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { Button } from '@/components/Buttons';
 import { SectionHeader } from '@/components/SectionHeader';
@@ -140,7 +140,6 @@ export function FounderSnippetsPage() {
             <div className="mt-12 text-center">
               <Button to="/join" variant="primary">
                 Join the Movement
-                <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
           </Reveal>

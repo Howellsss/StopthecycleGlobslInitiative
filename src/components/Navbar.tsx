@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { navItems, organization } from '@/data/organization';
 
 const logoSrc = '/images/logo.webp';
@@ -86,7 +86,6 @@ export function Navbar() {
               className="hidden items-center gap-1.5 whitespace-nowrap rounded-full bg-brand-emerald px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-brand-emerald-light hover:shadow-lg hover:shadow-brand-emerald/20 sm:inline-flex"
             >
               Get Involved
-              <ArrowRight className="h-4 w-4" />
             </Link>
             <button
               type="button"
@@ -135,7 +134,6 @@ export function Navbar() {
               className="mt-6 flex items-center justify-center gap-2 rounded-full bg-brand-emerald px-6 py-4 text-base font-semibold text-white"
             >
               Get Involved
-              <ArrowRight className="h-5 w-5" />
             </Link>
             <div className="mt-auto pt-8">
               <p className="text-sm text-brand-navy/70">{organization.tagline}</p>

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Users, Target, TrendingUp, Quote, Calendar, MapPin, Pause, Play } from 'lucide-react';
+import { Sparkles, Users, Target, TrendingUp, Quote, Calendar, MapPin, Pause, Play } from 'lucide-react';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { Button } from '@/components/Buttons';
 import { SectionLabel, SectionHeader } from '@/components/SectionHeader';
@@ -128,7 +128,6 @@ export function HomePage() {
                   <>
                     <Link to="/events/register" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-lime px-7 py-3.5 text-sm font-bold text-brand-navy transition-all duration-300 hover:bg-white hover:shadow-lg">
                       Register for the Summit
-                      <ArrowRight className="h-4 w-4" />
                     </Link>
                     <Link to="/programs" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/50 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10">
                       Explore Our Programs
@@ -138,7 +137,6 @@ export function HomePage() {
                   <>
                     <Link to="/programs" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-lime px-7 py-3.5 text-sm font-bold text-brand-navy transition-all duration-300 hover:bg-white hover:shadow-lg">
                       Explore Our Programs
-                      <ArrowRight className="h-4 w-4" />
                     </Link>
                     <Link to="/join" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/50 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white hover:bg-white/10">
                       Join the Movement
@@ -191,7 +189,6 @@ export function HomePage() {
             </div>
             <Link to="/events/register" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-brand-lime px-6 py-3 text-sm font-bold text-brand-navy transition-colors hover:bg-white">
               Register now
-              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </section>
@@ -264,7 +261,6 @@ export function HomePage() {
                       )}
                       <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-navy">
                         Learn more
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </span>
                     </div>
                   </Link>
@@ -281,7 +277,6 @@ export function HomePage() {
                     <p className="mt-3 flex-1 text-sm leading-relaxed text-brand-navy/75">{program.description}</p>
                     <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-emerald">
                       Learn more
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
                   </div>
                 </Link>
@@ -322,7 +317,6 @@ export function HomePage() {
                   {summitUpcoming && (
                     <Link to="/events/register" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-lime px-7 py-3.5 text-sm font-bold text-brand-navy transition-colors duration-300 hover:bg-white">
                       Register Now
-                      <ArrowRight className="h-4 w-4" />
                     </Link>
                   )}
                   <Link
@@ -381,7 +375,6 @@ export function HomePage() {
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button to="/stcgs2026" variant="primary">
               Explore STCGS 2026
-              <ArrowRight className="h-4 w-4" />
             </Button>
             <Button to="/gallery" variant="ghost">
               View Full Gallery
@@ -451,7 +444,6 @@ export function HomePage() {
                     <p className="mt-2 flex-1 text-sm leading-relaxed text-brand-navy/75">{path.description}</p>
                     <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-emerald">
                       Start here
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
                   </div>
                 </Link>
@@ -461,7 +453,6 @@ export function HomePage() {
           <div className="mt-8 text-center">
             <Link to="/join" className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-brand-emerald hover:text-brand-emerald-light">
               See every way to take part
-              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
@@ -493,7 +484,6 @@ export function HomePage() {
             <div className="mt-10">
               <Button to="/get-involved" variant="primary" className="px-8 py-4 text-base">
                 Get Involved
-                <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
           </Reveal>

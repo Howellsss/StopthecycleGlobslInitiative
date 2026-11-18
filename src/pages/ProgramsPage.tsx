@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Cpu, Heart, Compass, TrendingUp, GraduationCap, Calendar } from 'lucide-react';
+import { Cpu, Heart, Compass, TrendingUp, GraduationCap, Calendar } from 'lucide-react';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { Button, ArrowLink } from '@/components/Buttons';
 import { SectionLabel, SectionHeader } from '@/components/SectionHeader';
@@ -88,7 +88,6 @@ export function ProgramsPage() {
               <Reveal delay={0.3}>
                 <Button to="/get-involved" variant="primary">
                   Join a Program
-                  <ArrowRight className="h-4 w-4" />
                 </Button>
               </Reveal>
             </div>
@@ -158,7 +157,6 @@ export function ProgramsPage() {
               <Reveal delay={0.3}>
                 <Button to="/join" variant="primary">
                   Join the Community
-                  <ArrowRight className="h-4 w-4" />
                 </Button>
               </Reveal>
             </div>
@@ -202,7 +200,6 @@ export function ProgramsPage() {
                       )}
                       <Link to="/get-involved" className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-brand-navy hover:underline">
                         Join this program
-                        <ArrowRight className="h-4 w-4" />
                       </Link>
                     </div>
                   </div>
@@ -246,7 +243,6 @@ export function ProgramsPage() {
             <div className="mt-8">
               <Button to="/get-involved" variant="primary" className="px-8 py-4 text-base">
                 Get Involved
-                <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
           </Reveal>

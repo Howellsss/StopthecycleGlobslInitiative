@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowLeft, Calendar, ExternalLink, MapPin, Phone } from 'lucide-react';
+import { Calendar, ExternalLink, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Reveal } from '@/components/Reveal';
 import { SectionLabel } from '@/components/SectionHeader';
@@ -51,7 +51,6 @@ export function RegistrationPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <Reveal>
             <Link to="/events" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-brand-navy/75 transition-colors hover:text-brand-emerald">
-              <ArrowLeft className="h-4 w-4" />
               Back to Events
             </Link>
             <div className="mt-8">

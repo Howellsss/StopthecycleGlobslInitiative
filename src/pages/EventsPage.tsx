@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Calendar, MapPin } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { Button } from '@/components/Buttons';
 import { events, featuredEvent, type EventItem } from '@/data/events';
@@ -57,7 +57,7 @@ export function EventsPage() {
                 </div>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   {summitUpcoming && (
-                    <Button to="/events/register" variant="primary">Register Now <ArrowRight className="h-4 w-4" /></Button>
+                    <Button to="/events/register" variant="primary">Register Now</Button>
                   )}
                   <Button to="/summits" variant="ghost">About the Summit</Button>
                 </div>
@@ -129,7 +129,6 @@ export function EventsPage() {
                           className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-brand-emerald transition-colors hover:text-brand-emerald-light"
                         >
                           {action.label}
-                          <ArrowRight className="h-4 w-4" />
                         </Link>
                       </div>
                     )}
@@ -165,7 +164,6 @@ export function EventsPage() {
             <div className="mt-8">
               <Button to="/join" variant="primary" className="px-8 py-4 text-base">
                 Join the Movement
-                <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
           </Reveal>
