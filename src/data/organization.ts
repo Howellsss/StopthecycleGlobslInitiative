@@ -30,6 +30,7 @@ export const navItems = [
   { label: 'Summit', path: '/summits' },
   { label: 'STCGS 2026', path: '/stcgs2026' },
   { label: 'Events', path: '/events' },
+  { label: 'Travels & Tours', path: '/travels-and-tours' },
   { label: 'Gallery', path: '/gallery' },
   { label: "Founder's Snippets", path: '/founder-snippets' },
 ];
