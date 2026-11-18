@@ -61,12 +61,10 @@ export function SummitPage() {
                 {summitUpcoming ? (
                   <Link to="/events/register" className={limeButton}>
                     Register Now
-                    <ArrowRight className="h-4 w-4" />
                   </Link>
                 ) : (
                   <Link to="/stcgs2026" className={limeButton}>
                     Relive Summit 2026
-                    <ArrowRight className="h-4 w-4" />
                   </Link>
                 )}
                 <Link to="/get-involved" className={secondaryButton}>
@@ -108,7 +106,6 @@ export function SummitPage() {
                 <Reveal delay={0.2}>
                   <Button to="/events/register" variant="primary">
                     Register Now
-                    <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Reveal>
               )}
@@ -200,7 +197,6 @@ export function SummitPage() {
           <div className="mt-10 text-center">
             <Button to="/stcgs2026" variant="primary">
               See the full 2026 photo story
-              <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
         </div>
@@ -225,7 +221,6 @@ export function SummitPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
               <Link to={summitUpcoming ? '/events/register' : '/get-involved'} className={limeButton}>
                 {summitUpcoming ? 'Register Now' : 'Get Involved'}
-                <ArrowRight className="h-5 w-5" />
               </Link>
               <Link to="/get-involved" className={secondaryButton}>
                 Become a Partner

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowDown, ArrowRight, Calendar, ChevronLeft, ChevronRight, MapPin, X } from 'lucide-react';
+import { Calendar, ChevronLeft, ChevronRight, MapPin, X } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { SectionLabel } from '@/components/SectionHeader';
 import { summit2026Chapters, summit2026Photos, type StoryChapter, type StoryPhoto } from '@/data/summit2026';
@@ -119,7 +119,6 @@ function Chapter({
               }`}
             >
               Next: {next.title}
-              <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </a>
           </div>
         )}
@@ -212,7 +211,6 @@ export function Summit2026Page() {
               className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-brand-lime px-7 py-3.5 text-sm font-bold text-brand-navy transition-colors hover:bg-white"
             >
               Start the story
-              <ArrowDown className="h-4 w-4" />
             </a>
           </Reveal>
         </div>
@@ -250,7 +248,6 @@ export function Summit2026Page() {
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Link to="/get-involved" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-navy px-7 py-3.5 text-sm font-semibold text-white hover:bg-brand-navy-deep">
                 Get Involved
-                <ArrowRight className="h-4 w-4" />
               </Link>
               <Link to="/gallery" className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-navy/30 px-7 py-3.5 text-sm font-semibold text-brand-navy hover:border-brand-navy">
                 More from the gallery

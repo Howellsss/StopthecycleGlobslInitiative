@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowRight, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { currentSummit, isSummitUpcoming } from '@/data/summits';
 
 const DISMISS_KEY = 'stc-summit-bar-dismissed';
@@ -57,7 +57,6 @@ export function SummitBar() {
             className="inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full bg-brand-lime px-4 text-sm font-bold text-brand-navy"
           >
             Register
-            <ArrowRight className="h-4 w-4" />
           </Link>
           <button
             type="button"

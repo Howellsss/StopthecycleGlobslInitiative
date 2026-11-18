@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Globe, Handshake, Mail, Mic, Plane, Play, Quote, Users, GraduationCap } from 'lucide-react';
+import { Globe, Handshake, Mail, Mic, Plane, Play, Quote, Users, GraduationCap } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { SectionLabel } from '@/components/SectionHeader';
 import { organization } from '@/data/organization';
@@ -181,7 +181,6 @@ export function TravelsPage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a href="#vienna" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-lime px-7 py-3.5 text-sm font-bold text-brand-navy transition-colors hover:bg-white">
                   See the Vienna journey
-                  <ArrowRight className="h-4 w-4" />
                 </a>
                 <a href="#collaborate" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10">
                   Collaborate with us
@@ -249,7 +248,6 @@ export function TravelsPage() {
               <span className="block font-serif text-xl font-semibold text-brand-navy">Vienna, Austria</span>
               <span className="block text-sm text-brand-navy/75">UNODC · COP13 to UNTOC</span>
             </span>
-            <ArrowRight className="h-5 w-5 text-brand-emerald transition-transform group-hover:translate-x-1" />
           </a>
           <a href="#collaborate" className="group flex items-center gap-4 rounded-2xl border-2 border-dashed border-brand-emerald/40 p-5 transition-colors hover:border-brand-emerald hover:bg-brand-cream-warm">
             <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-lime text-brand-navy">
@@ -259,7 +257,6 @@ export function TravelsPage() {
               <span className="block font-serif text-xl font-semibold text-brand-navy">Your city next?</span>
               <span className="block text-sm text-brand-navy/75">Invite Stop The Cycle to your country or convening.</span>
             </span>
-            <ArrowRight className="h-5 w-5 text-brand-emerald transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </section>
@@ -405,7 +402,6 @@ export function TravelsPage() {
                 </a>
                 <Link to="/get-involved" className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-navy/30 px-7 py-3.5 text-sm font-semibold text-brand-navy hover:border-brand-navy">
                   Partner with us
-                  <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
               <p className="mt-6 text-sm text-brand-navy/80">

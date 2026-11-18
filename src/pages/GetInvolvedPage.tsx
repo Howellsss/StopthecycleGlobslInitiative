@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ArrowRight, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { SectionLabel } from '@/components/SectionHeader';
 import { PageHero } from '@/components/PageHero';
@@ -81,7 +81,6 @@ export function GetInvolvedPage() {
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-navy px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-brand-navy-deep"
               >
                 Start a Conversation
-                <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href={`tel:${organization.phones[0].tel}`}

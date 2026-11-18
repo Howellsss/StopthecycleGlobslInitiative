@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { type ReactNode } from 'react';
-import { ArrowRight } from 'lucide-react';
 
 interface ButtonProps {
   children: ReactNode;
@@ -53,7 +52,6 @@ export function ArrowLink({ children, to }: { children: ReactNode; to: string })
       className="group inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-brand-emerald transition-colors hover:text-brand-emerald-light"
     >
       {children}
-      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
     </Link>
   );
 }

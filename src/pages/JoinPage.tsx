@@ -1,4 +1,4 @@
-import { ArrowRight, Users, GraduationCap, Heart, Briefcase, Calendar, HandHeart } from 'lucide-react';
+import { Users, GraduationCap, Heart, Briefcase, Calendar, HandHeart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/Reveal';
 import { Button } from '@/components/Buttons';
@@ -66,7 +66,6 @@ export function JoinPage() {
                   <p className="flex-1 text-sm leading-relaxed text-brand-navy/75">{path.description}</p>
                   <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-emerald">
                     Start here
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </Link>
               </StaggerItem>
@@ -110,7 +109,6 @@ export function JoinPage() {
               <Reveal delay={0.25}>
                 <Button to="/get-involved" variant="primary">
                   Join the Volunteer Community
-                  <ArrowRight className="h-4 w-4" />
                 </Button>
               </Reveal>
             </div>
@@ -133,7 +131,6 @@ export function JoinPage() {
             <div className="mt-8">
               <Button to="/get-involved" variant="primary" className="px-8 py-4 text-base">
                 Get Involved
-                <ArrowRight className="h-5 w-5" />
               </Button>
             </div>
           </Reveal>
