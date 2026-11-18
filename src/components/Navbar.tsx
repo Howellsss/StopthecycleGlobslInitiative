@@ -52,13 +52,13 @@ export function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5">
             <img src={logoSrc} alt="" width={40} height={40} className="h-10 w-10 rounded-lg object-contain" />
-            <span className="whitespace-nowrap text-base font-extrabold tracking-tight text-brand-navy">
+            <span className="whitespace-nowrap text-base font-extrabold tracking-tight text-brand-navy xl:sr-only">
               {organization.name}
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav aria-label="Main" className="hidden items-center gap-0.5 lg:flex xl:gap-1">
+          <nav aria-label="Main" className="hidden items-center gap-0.5 xl:flex 2xl:gap-1">
             {navItems.map((item) => {
               const active = isActive(item.path);
               return (
@@ -66,7 +66,7 @@ export function Navbar() {
                   key={item.path}
                   to={item.path}
                   aria-current={active ? 'page' : undefined}
-                  className={`relative whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-medium transition-colors xl:px-4 ${
+                  className={`relative whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors 2xl:px-4 ${
                     active ? 'text-brand-emerald' : 'text-brand-navy/75 hover:text-brand-navy'
                   }`}
                 >
@@ -91,7 +91,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="flex h-11 w-11 items-center justify-center rounded-lg text-brand-navy lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-lg text-brand-navy xl:hidden"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
@@ -104,7 +104,7 @@ export function Navbar() {
 
       {/* Mobile full-screen menu */}
       {mobileOpen && (
-        <div id="mobile-menu" className="fixed inset-0 z-[45] overflow-y-auto bg-white lg:hidden">
+        <div id="mobile-menu" className="fixed inset-0 z-[45] overflow-y-auto bg-white xl:hidden">
           <div className="flex min-h-full flex-col px-6 pt-20 pb-8">
             <nav aria-label="Mobile" className="flex flex-col gap-1">
               {navItems.map((item) => {
